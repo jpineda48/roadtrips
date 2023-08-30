@@ -1,7 +1,7 @@
 // we're going to bring in the mongoose connection from our utils
 const mongoose = require('../utils/connection')
 // import our commentSchema, to use as a subdocument
-const commentSchema = require('./stops')
+const commentSchema = require('./stop')
 
 // we'll destructure the Schema and model functions from mongoose
 const { Schema, model } = mongoose
