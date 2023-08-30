@@ -24,6 +24,11 @@ app.use('/', AuthRouter)
 app.use('/trips', tripsRouter)
 
 
+app.get('/' ,(req, res)=>{
+    res.render('index', {title: 'HELLO'})
+
+})
+
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
