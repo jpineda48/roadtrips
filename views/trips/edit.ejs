@@ -1,0 +1,34 @@
+<%- include('../partials/nav') %>
+
+<h3>ALL MY TRIPS</h3>
+
+<div class="container">
+    <form action="/trips/<%= trip._id %>?_method=PATCH" method="POST">
+        <fieldset>
+            <legend>CREATE A NEW TRIP</legend>
+            <label class="form-label">DEPARTURE:
+                <input type="text" class="form-control" name="departure"
+                placeholder="where we leaving from?" required>
+            </label>
+            <label class="form-label">DESTINATION:
+                <input type="text" class="form-control" name="destination"
+                placeholder="where we going?" required>
+            </label>
+            <label class="form-label">DURATION:
+                <input type="text" class="form-control" name="duration"
+                placeholder="how long?" required>
+            </label>
+            <label class="form-label">ESSENTIALS:
+                <input type="text" class="form-control" name="essentials"
+                placeholder="dont forget...!" required>
+            </label>
+            <input type="submit" class="btn btn-success" value="Create New Trip">
+        </fieldset>
+
+    </form>
+</div>
+
+
+
+
+<%- include('../partials/footer') %>

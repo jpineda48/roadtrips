@@ -25,7 +25,7 @@ app.use('/trips', tripsRouter)
 
 
 app.get('/' ,(req, res)=>{
-    res.render('index', {title: 'HELLO'})
+    res.redirect('/trips')
 
 })
 

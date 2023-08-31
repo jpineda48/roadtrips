@@ -1,0 +1,21 @@
+<%- include('../partials/nav') %>
+
+<h3>ALL MY TRIPS</h3>
+<div class="container-md">
+    <ul>
+        <% trips.forEach(trip => { %>
+            <li>
+                <a href="/trips/<%=trip._id%>">
+                <%= trip.destination%>
+            </a>
+
+            </li>
+        <% }) %>   
+    </ul>
+</div>
+
+
+
+
+
+<%- include('../partials/footer') %>

@@ -1,7 +1,7 @@
 // we're going to bring in the mongoose connection from our utils
 const mongoose = require('../utils/connection')
 // import our commentSchema, to use as a subdocument
-const commentSchema = require('./stop')
+const stopsSchema = require('./stop')
 
 // we'll destructure the Schema and model functions from mongoose
 const { Schema, model } = mongoose
@@ -14,7 +14,10 @@ const tripSchema = new Schema({
         type: String
     },
     duration: {
-        type: Boolean
+        type: String
+    },
+    essentials: {
+        type: Array
     },
     owner: {
         type: Schema.Types.ObjectId,
@@ -29,4 +32,4 @@ const Trips = model('Trip', tripSchema)
 //////////////////////////
 //// Export our Model ////
 //////////////////////////
-module.exports = Fruit
+module.exports = Trips
