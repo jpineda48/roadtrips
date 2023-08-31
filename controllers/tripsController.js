@@ -98,6 +98,8 @@ router.delete('/:id', checkLogin, (req, res) => {
 //show
 router.get('/:id', (req, res) =>{
     Trip.findById(req.params.id)
+    .populate('owner')
+    .populate('stops.author')
     .then(trip => {
         console.log("found these trip", trip)
         res.render('trips/show',{trip, title: trip})

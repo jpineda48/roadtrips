@@ -18,7 +18,7 @@ const stopsSchema = new Schema({
     people: {
         type: String
     },
-    owner: {
+    author: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
