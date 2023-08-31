@@ -6,6 +6,7 @@ const middleware = require('./utils/middleware')
 
 const AuthRouter = require('./controllers/authController')
 const tripsRouter = require('./controllers/tripsController')
+const stopsRouter = require('./controllers/stopsControllers')
 
 
 const app = express()
@@ -22,6 +23,8 @@ middleware(app)
 /////routes
 app.use('/', AuthRouter)
 app.use('/trips', tripsRouter)
+app.use('/stops', stopsRouter)
+
 
 
 app.get('/' ,(req, res)=>{
