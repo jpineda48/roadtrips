@@ -1,18 +1,21 @@
 <%- include('../partials/nav') %>
 
 <h3>ALL MY TRIPS</h3>
-<div class="container-md">
-    <ul>
-        <% trips.forEach(trip => { %>
-            <li>
-                <a href="/trips/<%=trip._id%>">
-                <%= trip.destination%>
-            </a>
 
-            </li>
-        <% }) %>   
-    </ul>
+
+<% trips.forEach(trip => { %>
+    
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"> <%= trip.departure%> <h5>&#8594</h5> <%= trip.destination%> </h5>
+      <p class="card-text">cool</p>
+      <a href="/trips/<%=trip._id%>" class="btn btn-primary">View Details</a>
+    </div>
 </div>
+
+    <% }) %>  
+    
 
 
 

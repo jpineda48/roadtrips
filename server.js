@@ -28,7 +28,9 @@ app.use('/stops', stopsRouter)
 
 
 app.get('/' ,(req, res)=>{
-    res.redirect('/trips')
+    res.render('trips/home', {
+        style: "/home.css"
+    })
 
 })
 
