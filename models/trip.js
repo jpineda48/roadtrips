@@ -13,11 +13,11 @@ const tripSchema = new Schema({
     destination: {
         type: String
     },
-    duration: {
+    start: {
         type: String
     },
-    essentials: {
-        type: Array
+    end: {
+        type: String
     },
     owner: {
         type: Schema.Types.ObjectId,

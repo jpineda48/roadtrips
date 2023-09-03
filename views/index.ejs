@@ -1,4 +1,4 @@
-<%- include('../partials/nav') %>
+<%- include('./partials/nav') %>
 
 <h3>ALL MY TRIPS</h3>
 
@@ -6,7 +6,7 @@
 <% trips.forEach(trip => { %>
     
 <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="https://imgur.com/ons6Dqs.png" >
     <div class="card-body">
       <h5 class="card-title"> <%= trip.departure%> <h5>&#8594</h5> <%= trip.destination%> </h5>
       <p class="card-text">cool</p>
@@ -21,4 +21,4 @@
 
 
 
-<%- include('../partials/footer') %>
+<%- include('./partials/footer') %>

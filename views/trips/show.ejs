@@ -1,20 +1,19 @@
 <%- include('../partials/nav') %>
 
-<h3>ALL MY TRIPS</h3>
+<h3>TRIP DETAILS</h3>
 
 <div class="conatiner-md">
     <div class="row justify-content-between">
         <article class="col-5 border border-dark">
-            <%= trip.departure %>
-            <%= trip.destination %>
-            <%= trip.duration %>
-            <%= trip.essentials %>
-
+            <h3><%= trip.departure %><h5>&#8594</h5><%= trip.destination %></h3>       
+            <br>
+            <%= trip.start %> <h3>to</h3>       
+            <%=trip.end %>
+               
             <% if (trip.owner?._id.equals(user?._id)) { %>
                 <div class="container">
                     <a href="/trips/edit/<%=trip.id%>" class="btn btn-info">
-                        Edit <%= trip.destination %>
-                        
+                        Edit trip to <%= trip.destination %>
                     </a>
                     <form action="/trips/<%= trip._id %>?_method=DELETE" method="POST">
                         <input type="submit" class="btn btn-danger m-3" value="Delete <%= trip.destination %>">

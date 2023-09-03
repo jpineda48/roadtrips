@@ -13,7 +13,7 @@ router.get('/', (req, res) =>{
     Trip.find({})
     .then(trips => {
         console.log("found these trips", trips)
-        res.render('trips/index', {trips, title: 'all trips'})
+        res.render('index', {trips, title: 'all trips'})
     })
     .catch(error => console.error)
 
@@ -42,6 +42,7 @@ router.post('/', checkLogin, (req, res)=>{
             red.redirect('trips/new')
         })
 })
+
 
 
 
@@ -108,5 +109,7 @@ router.get('/:id', (req, res) =>{
 
 
 })
+
+
 
 module.exports= router
