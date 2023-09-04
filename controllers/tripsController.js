@@ -8,26 +8,19 @@ const checkLogin = require('../utils/ensureLoggedIn')
 
 ////routes & controllers
 
-///index
-router.get('/', (req, res) =>{
-    Trip.find({})
-    .then(trips => {
-        console.log("found these trips", trips)
-        res.render('index', {trips, title: 'all trips'})
-    })
-    .catch(error => console.error)
 
-
-})
 
     
 
 ///new
 router.get('/new', checkLogin,  (req, res) =>{
    res.render('trips/new')
-
-
 })
+
+   // add essentials
+
+
+
 
 //create
 router.post('/', checkLogin, (req, res)=>{
@@ -102,13 +95,24 @@ router.get('/:id', (req, res) =>{
     .populate('owner')
     .populate('stops.author')
     .then(trip => {
-        console.log("found these trip", trip)
+      
         res.render('trips/show',{trip, title: trip})
     })
     .catch(error => console.error)
 
 
 })
+///index
+router.get('/', (req, res) =>{
+    Trip.find({})
+    .then(trips => {
+        
+        res.render('index', {trips, title: 'all trips'})
+    })
+    .catch(error => console.error)
+})
+
+
 
 
 

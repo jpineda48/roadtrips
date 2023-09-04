@@ -19,12 +19,16 @@ const tripSchema = new Schema({
     end: {
         type: String
     },
+    essentials: {
+        type: String
+    },
     owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
     stops: [stopsSchema]
 }, { timestamps: true })
+
 
 
 const Trips = model('Trip', tripSchema)

@@ -3,10 +3,11 @@
 <h3>ALL MY TRIPS</h3>
 
 <div class="container">
-    <form action="/trips/<%= trip._id %>?_method=PATCH" method="POST">
+    <form action="/trips" method="POST">
         <fieldset>
             <legend>CREATE A NEW TRIP</legend>
-            <label class="form-label">DEPARTURE:
+            <label class="form-label">DEPARTURE CITY:
+                
                 <input type="text" class="form-control" name="departure"
                 placeholder="where we leaving from?" required>
             </label>
@@ -14,12 +15,12 @@
                 <input type="text" class="form-control" name="destination"
                 placeholder="where we going?" required>
             </label>
-            <label class="form-label">DURATION:
-                <input type="text" class="form-control" name="duration"
+            <label class="form-label">START:
+                <input type="date" required pattern="\d{4}-\d{2}-\d{2}" class="form-control" name="start"
                 placeholder="how long?" required>
             </label>
-            <label class="form-label">ESSENTIALS:
-                <input type="text" class="form-control" name="essentials"
+            <label class="form-label">END:
+                <input type="date" required pattern="\d{4}-\d{2}-\d{2}" class="form-control" name="end"
                 placeholder="dont forget...!" required>
             </label>
             <input type="submit" class="btn btn-success" value="Create New Trip">

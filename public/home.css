@@ -13,7 +13,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Yellowtail', cursive;
+  font-family: 'Calistoga', cursive;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+ 
 
 }
 .homepage > h1{

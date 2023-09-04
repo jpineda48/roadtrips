@@ -16,11 +16,11 @@
                 placeholder="where we going?" required>
             </label>
             <label class="form-label">START:
-                <input type="date" class="form-control" name="start"
+                <input type="date" required pattern="\d{4}-\d{2}-\d{2}" class="form-control" name="start"
                 placeholder="how long?" required>
             </label>
             <label class="form-label">END:
-                <input type="date" class="form-control" name="end"
+                <input type="date" required pattern="\d{4}-\d{2}-\d{2}" class="form-control" name="end"
                 placeholder="dont forget...!" required>
             </label>
             <input type="submit" class="btn btn-success" value="Create New Trip">
