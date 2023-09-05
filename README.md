@@ -26,3 +26,14 @@ _____________________________
     - Be able to add stops to the trip itenerary
     - be able to dro a pin on a map to add stop
     - be able to delete or edit posts made by me
+
+ ICE BOX
+___________________________
+-add routes feature to map out route
+-add votes option to up or down vote a stop
+
+
+
+ERD
+_____________________________
+<img width="647" alt="Screen Shot 2023-09-05 at 12 46 28 PM" src="https://github.com/jpineda48/roadtrips/assets/135978440/6624eec3-536b-4fa0-b192-23def1469435">
