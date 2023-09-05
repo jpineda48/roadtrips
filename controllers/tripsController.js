@@ -112,6 +112,21 @@ router.get('/', (req, res) =>{
     .catch(error => console.error)
 })
 
+//create
+router.post('/:tripId', checkLogin, (req, res)=>{
+    req.body.author = req.user._id
+    console.log(req.body)
+    Trip.findById(req.params.tripId)
+        .then(trip => {
+            trip.essentials.push(req.body)
+            return trip.save()
+        })
+        .then(trip => {
+            res.redirect(`/trips/${trip._id}`)
+        })
+        .catch(error => console.error)
+  
+})
 
 
 

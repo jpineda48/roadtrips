@@ -5,11 +5,11 @@
 
 <% trips.forEach(trip => { %>
     
-<div class="card" style="width: 18rem;">
+<div class="card m-3" style="width: 18rem;">
     <img class="card-img-top" src="https://imgur.com/ons6Dqs.png" >
     <div class="card-body">
-      <h5 class="card-title"> <%= trip.departure%> <h5>&#8594</h5> <%= trip.destination%> </h5>
-      <p class="card-text">cool</p>
+      <h5 class="card-title"> <%= trip.departure%></h5> <h5>&#8594</h5> <h5><%= trip.destination%> </h5>
+      <p class="card-text">VIEW TRIP DETAILS</p>
       <a href="/trips/<%=trip._id%>" class="btn btn-primary">View Details</a>
     </div>
 </div>
