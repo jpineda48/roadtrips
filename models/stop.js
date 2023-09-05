@@ -9,15 +9,6 @@ const stopsSchema = new Schema({
     food: {
         type: String
     },
-    parks: {
-        type: String
-    },
-    places: {
-        type: String
-    },
-    people: {
-        type: String
-    },
     author: {
         type: Schema.Types.ObjectId,
         ref: 'User'

@@ -1,5 +1,6 @@
 // we're going to bring in the mongoose connection from our utils
 const mongoose = require('../utils/connection')
+
 // import our commentSchema, to use as a subdocument
 const stopsSchema = require('./stop')
 
@@ -19,9 +20,7 @@ const tripSchema = new Schema({
     end: {
         type: String
     },
-    essentials: {
-        type: String
-    },
+  
     owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'

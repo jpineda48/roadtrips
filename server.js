@@ -11,6 +11,7 @@ const mapRouter = require('./controllers/mapController')
 
 
 
+
 const app = express()
 
 // set up our view engine
@@ -27,6 +28,7 @@ app.use('/', AuthRouter)
 app.use('/trips', tripsRouter)
 app.use('/stops', stopsRouter)
 app.use('/map', mapRouter)
+
 
 
 

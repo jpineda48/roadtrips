@@ -5,146 +5,95 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a href="/" class="navbar-brand">My Road Trip</a>
-        <% if (user) {%>
-            <a href="/fruits" class="nav-link text-dark me-3">
+            <% if (user) {%>
+                <a href="/trips" class="nav-link text-dark me-3">
                 Hello <%= user.name %>
-            </a>
-        <% } %>
+                </a>
+            <% } %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <% if (user) {%>
-                <a href="/trips" class="nav-link text-dark me-3">All My Trips</a>
-                <a href="/map" class="nav-link text-dark me-3">Discover</a>
-                <a href="/logout" class="nav-link text-danger me-3">LOG OUT</a>
+            <a href="/trips" class="nav-link text-dark me-3">All My Trips</a>
+            <a href="/map" class="nav-link text-dark me-3">Discover</a>
+            <a href="/logout" class="nav-link text-danger me-3">LOG OUT</a>
             <% } else { %>
-                <a href="/auth/google" class="login">LOG IN&nbsp;
-                    <img src="https://i.imgur.com/FHjYyi0.png">
-                </a>
+            <a href="/auth/google" class="login">LOG IN&nbsp;
+                <img src="https://i.imgur.com/FHjYyi0.png">
+            </a>
             <% } %>
         </div>
     </div>
 </nav>
-<hr>
+
 
 
 <div class="container-md" id="show">
         
-            <div class="box">
-                <button>CHECK LOCAL WEATHER</button>
-                <h1>TRIP DETAILS</h1>
+    <div class="box">
+        <button>CHECK LOCAL WEATHER</button>
+        <h1>TRIP DETAILS</h1>
             <h3><%= trip.departure %> &#8594 <%= trip.destination %></h3>       
             <br>
             <h3><%= trip.start %> &#8594 <%= trip.end %></h3> 
-           
-            </div>  
-            <div class="box">
-                
-            <% if (trip.owner?._id.equals(user?._id)) { %>
-                <div class="container">
-                    <a href="/trips/edit/<%=trip.id%>" class="btn btn-info">
-                        Edit trip to <%= trip.destination %>
-                    </a>
-                    <form action="/trips/<%= trip._id %>?_method=DELETE" method="POST">
-                        <input type="submit" class="btn btn-danger m-3" value="Delete <%= trip.destination %>">
-                    </form>
-                </div>
+    </div>  
 
-                <% }%>
+        
+    <div class="box">
+        <% if (trip.owner?._id.equals(user?._id)) { %>
+            <div class="container">
+                    <a href="/trips/edit/<%=trip.id%>" class="btn btn-info">
+                    Edit trip to <%= trip.destination %>
+                    </a>
+                        <form action="/trips/<%= trip._id %>?_method=DELETE" method="POST">
+                        <input type="submit" class="btn btn-danger m-3" value="Delete <%= trip.destination %>">
+                        </form>
+            </div>
+        <% }%>
+    </div> 
+
                
-            </div> 
         
    
     <div class="box">
-    <hr>
-
-
-
-
-
-    
     <% if (user) { %>
         <div class="col-md-6">
+            <hr>
             <form action="/stops/<%=trip.id%>" method="POST">
                 <fieldset>
-                    <legend> <h5>ADD A STOP</h5></legend>
+                    <legend></legend>
                     <label class="form-label"></label>
-                    <input class="form-control mb-1" placeholder="Eats &#127789"
+                    <input class="form-control mb-1" placeholder="add a stop"
                     type="text" name="food">
                     <input type="submit" class="btn btn-light">
                 </fieldset>
-
-            </form>
-            <form action="/stops/<%=trip.id%>" method="POST">
-                <fieldset>
-                    <legend> </legend>
-                    <label class="form-label">places</label>
-                    <input class="form-control mb-1"
-                    type="text" name="places">
-                    <input type="submit" class="btn btn-light">
-                </fieldset>
-
             </form>
         </div>
-
-        <% }%>
+    <% }%>
         <% if (trip.stops.length) { %>
-           
-                <% trip.stops.forEach(stop => { %>
-                
-                        
-                            <p> We gotta try! <%= stop.food %> </p>
-                            <p> <%= stop.places %> </p>
-                            <div class="d-flex justify-content-between">
-                                <small >
-                                    Added by: <%= stop.author.name %> </small>
-                                    <% if(user && stop.author?._id == user.id) { %>
-                                    <form action="/stops/<%= trip._id%>/<%= stop._id %>?_method=DELETE" method="POST">
-                                    <input type="submit" class="btn btn-outline-danger-sm" value="x">
-                                    
-                                    <% } %>
-    
-                               
-                            </div>
-    
-                        
-                    
-                    <% }) %>
-            
-    
-        <% } else { %>
-    
-            <p3>no stops added</p3>
-    
+            <% trip.stops.forEach(stop => { %>
+                <h5>We gotta Check out:</h5>
+                <h1> <%= stop.food %> </h1>
+                    <div class="d-flex justify-content-end">
+                    <small >
+                    Added by: <%= stop.author.name %> </small>
+                    <% if(user && stop.author?._id == user.id) { %>
+                        <form action="/stops/<%= trip._id%>/<%= stop._id %>?_method=DELETE" method="POST">
+                        <input type="submit" class="btn btn-outline-danger-sm" value="x">
+                    <% } %>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p3>no stops added</p3>
         <% } %>
-</div>
-
-
-<div class="box">
-    <%= trip.essentials %>
-
-    <h3> dont forget</h3>
-    <div class="col-md-6">
-        <form action="/trips/<%=trip.id%>" method="POST">
-            <fieldset>
-                <legend> ADD AN ESSENTIAL</legend>
-                <label class="form-label">STOP</label>
-                <input class="form-control mb-1"
-                type="text" name="essentials">
-                <input type="submit" class="btn btn-success">
-            </fieldset>
-
-        </form>
-       
-        
-                     
-                           
-                      
     </div>
-    
-</div>
-</div>
+
+
+    <div class="box">
+       
+       
+    </div>
 
 
 
