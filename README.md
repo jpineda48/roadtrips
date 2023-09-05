@@ -24,13 +24,13 @@ _____________________________
     - use google OAuth to sign in
     - Be able to create a new trip
     - Be able to add stops to the trip itenerary
-    - be able to dro a pin on a map to add stop
+    - be able to drop a pin on a map to add stop
     - be able to delete or edit posts made by me
 
  ICE BOX
 ___________________________
--add routes feature to map out route
--add votes option to up or down vote a stop
+   - add routes feature to map out route
+   - add votes option to up or down vote a stop
 
 
 
